@@ -212,7 +212,8 @@ def load_dataset(organism):
     print npath, ppath
     samples = SequenceDinucProperties(npath, ppath)
     X, y = samples.getX(), samples.getY()
-    X = X.reshape(-1, 38, 79, 1).astype('float32')
+#    X = X.reshape(-1, 38, 79, 1).astype('float32')
+    X = X.astype('float32')
     y = y.astype('float32')
     print 'Input Shapes\nX: {} | y: {}'.format(X.shape, y.shape)
     return X, y
