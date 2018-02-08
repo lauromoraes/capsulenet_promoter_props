@@ -212,7 +212,9 @@ def load_dataset(organism):
     print npath, ppath
     samples = SimpleHistData(npath, ppath, k=4, upto=True)
     X, y = samples.getX(), samples.getY()
-#    X = X.reshape(-1, 38, 79, 1).astype('float32')
+    print 'X.shape', X.shape
+    X = X.reshape(-1, 1, X.shape[1], 1).astype('float32')
+    print 'X.shape', X.shape
     X = X.astype('float32')
     y = y.astype('float32')
     print 'Input Shapes\nX: {} | y: {}'.format(X.shape, y.shape)
