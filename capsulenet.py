@@ -170,8 +170,8 @@ def test(model, data, args):
     print()
     print('Reconstructed images are saved to %s/real_and_recon.png' % args.save_dir)
     print('-' * 30 + 'End: test' + '-' * 30)
-    plt.imshow(plt.imread(args.save_dir + "/real_and_recon.png"))
-    plt.show()
+#    plt.imshow(plt.imread(args.save_dir + "/real_and_recon.png"))
+#    plt.show()
     for i in range(len(y_test)):
         print i, y_test[i], y_pred[i]
     stats = BaseStatistics(y_test, y_pred)
@@ -210,7 +210,7 @@ def load_dataset(organism):
     print 'Load organism: {}'.format(organism)
     npath, ppath = './fasta/{}_neg.fa'.format(organism), './fasta/{}_pos.fa'.format(organism)
     print npath, ppath
-    samples = SequenceDinucProperties(npath, ppath)
+    samples = SimpleHistData(npath, ppath, k=4, upto=True)
     X, y = samples.getX(), samples.getY()
 #    X = X.reshape(-1, 38, 79, 1).astype('float32')
     X = X.astype('float32')
